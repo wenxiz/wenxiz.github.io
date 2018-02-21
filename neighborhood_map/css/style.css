@@ -1,0 +1,50 @@
+html, 
+body {
+	font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #777;
+}
+
+.container-fluid {
+    height: 100%;
+    padding: 0px;
+}
+
+.drop-category {
+    font-weight: bold;
+}
+.listItem {
+    padding-left: 5px;
+}
+#map {
+    height: 100%;
+}
+
+#pano {
+    width: 200px;
+    height: 200px;
+      }
+
+.row {
+    height: 100%;
+}
+
+.search {
+    width: 100%;
+    font-size: .9em;
+    padding: 5px 15px;
+}
+
+.text {
+    font-size: 12px;
+      }
+
+#tips {
+    width: 200px;
+    padding: 5px;
+}
