@@ -6,6 +6,42 @@ var cell_width = 101,
     enemy: -200
 };
 
+// Set the default character 
+var char = 'char-boy';
+
+// Initialize the character to the player's choosen, if clicked */
+document.getElementById('boy').addEventListener('click', function(){
+    char = 'char-boy';
+    document.getElementById('boy').src ='images/char-boy.png';
+    document.getElementById('cat-girl').src ='images/char-cat-girl-off.png';
+    document.getElementById('horn-girl').src ='images/char-horn-girl-off.png';
+    document.getElementById('princess-girl').src ='images/char-princess-girl-off.png';
+}, false);
+
+document.getElementById('cat-girl').addEventListener('click', function(){
+    char = 'char-cat-girl';
+    console.log(213);
+    document.getElementById('boy').src ='images/char-boy-off.png';
+    document.getElementById('cat-girl').src ='images/char-cat-girl.png';
+    document.getElementById('horn-girl').src ='images/char-horn-girl-off.png';
+    document.getElementById('princess-girl').src ='images/char-princess-girl-off.png';
+}, false);
+
+document.getElementById('horn-girl').addEventListener('click', function(){
+    char = 'char-horn-girl';
+    document.getElementById('boy').src ='images/char-boy-off.png';
+    document.getElementById('cat-girl').src ='images/char-cat-girl-off.png';
+    document.getElementById('horn-girl').src ='images/char-horn-girl.png';
+    document.getElementById('princess-girl').src ='images/char-princess-girl-off.png';
+}, false);
+
+document.getElementById('princess-girl').addEventListener('click', function(){
+    char = 'char-princess-girl';
+    document.getElementById('boy').src ='images/char-boy-off.png';
+    document.getElementById('cat-girl').src ='images/char-cat-girl-off.png';
+    document.getElementById('horn-girl').src ='images/char-horn-girl-off.png';
+    document.getElementById('princess-girl').src ='images/char-princess-girl.png';
+}, false);
 
 // Enemies our player must avoid 
 var Enemy = function(x, y, speed) {
@@ -43,13 +79,8 @@ Enemy.prototype.render = function() {
 var Player = function(x, y) {
     this.x = x;
     this.y = y;
-    var roleImages = [
-        'images/char-boy.png',
-        'images/char-cat-girl.png',
-        'images/char-horn-girl.png',
-        'images/char-pink-girl.png'];
-    var index = Math.floor(Math.random() * roleImages.length);
-    this.sprite = roleImages[index];
+    this.sprite = 'images/' + char + '.png';
+    console.log(334);
     this.score = 0;
 };
 
@@ -113,6 +144,8 @@ Player.prototype.handleInput = function(movement) {
         break;
     }
 };
+
+
 
 //This function is used to render player
 

@@ -1,9 +1,21 @@
 body {
+	font-size: 32px;
     text-align: center;
+    background: #d5f7619e;
+}
+
+.opening {
+	width: 100%;
 }
 
 #score {
 	color: #86f442;
+}
+
+#startButton {
+	font-size: 32px;
+	background-color: gainsboro;
+	padding: 40px;
 }
 
 .text {

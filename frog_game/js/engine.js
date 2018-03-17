@@ -29,7 +29,8 @@ var Engine = (function(global) {
 
     canvas.width = 505;
     canvas.height = 606;
-    doc.body.appendChild(canvas);
+    doc.body.appendChild(canvas).hidden = true;
+    document.getElementById('menu').hidden = true;
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -114,6 +115,12 @@ var Engine = (function(global) {
        /* This array holds the relative URL to the image used
         * for that particular row of the game level.
         */
+        document.getElementById('startButton').addEventListener('click', function(){
+            document.getElementById('opening').hidden = true;
+            document.getElementById('menu').hidden = false;
+            doc.body.appendChild(canvas).hidden = false;
+        });
+
         var rowImages = [
                 'images/water-block.png',   // Top row is water
                 'images/stone-block.png',   // Row 1 of 4 of stone

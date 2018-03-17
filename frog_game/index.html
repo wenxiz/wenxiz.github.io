@@ -7,8 +7,28 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
-	<h1 class="text">Score: <span id="score"></span></h1>
-	<h2 class="text">Use ↑ ↓ → ← to the river!</h2>
+	<div id="opening">
+		<div class="selector">
+			<p>Choose your character: </p>
+			<img src="images/char-boy.png" id="boy" class="player">
+			<img src="images/char-cat-girl.png" id="cat-girl" class="player">
+			<img src="images/char-horn-girl.png" id="horn-girl" class="player">
+			<img src="images/char-princess-girl.png" id="princess-girl" class="player">
+		</div>
+		<div class="instruction">
+			<p>Use the keyboard arrows to move the character:</p>
+			<img src="images/arrows.png">
+			<p>To start game, click "Start New Game!"</p>
+			<div id="start">
+				<button id="startButton">Start New Game!</button>
+			</div>
+		</div>
+	</div>
+	<div id="menu">
+		<h1 class="text">Score: <span id="score"></span></h1>
+		<h2 class="text">Use ↑ ↓ → ← to the river!</h2>
+	</div>
+
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
