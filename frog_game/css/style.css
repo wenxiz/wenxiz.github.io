@@ -12,6 +12,10 @@ body {
 	color: #86f442;
 }
 
+.selector {
+	cursor: pointer;
+}
+
 #startButton {
 	font-size: 32px;
 	background-color: gainsboro;
