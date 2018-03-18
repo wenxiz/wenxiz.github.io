@@ -9,40 +9,6 @@ var cell_width = 101,
 // Set the default character 
 var char = 'char-boy';
 
-// Initialize the character to the player's choosen, if clicked */
-document.getElementById('boy').addEventListener('click', function(){
-    char = 'char-boy';
-    document.getElementById('boy').src ='images/char-boy.png';
-    document.getElementById('cat-girl').src ='images/char-cat-girl-off.png';
-    document.getElementById('horn-girl').src ='images/char-horn-girl-off.png';
-    document.getElementById('princess-girl').src ='images/char-princess-girl-off.png';
-}, false);
-
-document.getElementById('cat-girl').addEventListener('click', function(){
-    char = 'char-cat-girl';
-    console.log(213);
-    document.getElementById('boy').src ='images/char-boy-off.png';
-    document.getElementById('cat-girl').src ='images/char-cat-girl.png';
-    document.getElementById('horn-girl').src ='images/char-horn-girl-off.png';
-    document.getElementById('princess-girl').src ='images/char-princess-girl-off.png';
-}, false);
-
-document.getElementById('horn-girl').addEventListener('click', function(){
-    char = 'char-horn-girl';
-    document.getElementById('boy').src ='images/char-boy-off.png';
-    document.getElementById('cat-girl').src ='images/char-cat-girl-off.png';
-    document.getElementById('horn-girl').src ='images/char-horn-girl.png';
-    document.getElementById('princess-girl').src ='images/char-princess-girl-off.png';
-}, false);
-
-document.getElementById('princess-girl').addEventListener('click', function(){
-    char = 'char-princess-girl';
-    document.getElementById('boy').src ='images/char-boy-off.png';
-    document.getElementById('cat-girl').src ='images/char-cat-girl-off.png';
-    document.getElementById('horn-girl').src ='images/char-horn-girl-off.png';
-    document.getElementById('princess-girl').src ='images/char-princess-girl.png';
-}, false);
-
 // Enemies our player must avoid 
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -80,9 +46,12 @@ var Player = function(x, y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/' + char + '.png';
-    console.log(334);
     this.score = 0;
 };
+
+Player.prototype.change = function(char) {
+    this.sprite = 'images/' + char + '.png';
+}
 
 // Give user a delay time to realize their control has been done
 var count = 0
@@ -145,8 +114,6 @@ Player.prototype.handleInput = function(movement) {
     }
 };
 
-
-
 //This function is used to render player
 
 Player.prototype.render = function() {
@@ -177,3 +144,40 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+
+// Initialize the character to the player's choosen, if clicked */
+document.getElementById('boy').addEventListener('click', function(){
+    char = 'char-boy';
+    document.getElementById('boy').src ='images/char-boy.png';
+    document.getElementById('cat-girl').src ='images/char-cat-girl-off.png';
+    document.getElementById('horn-girl').src ='images/char-horn-girl-off.png';
+    document.getElementById('princess-girl').src ='images/char-princess-girl-off.png';
+    player.change(char);
+}, false);
+
+document.getElementById('cat-girl').addEventListener('click', function(){
+    char = 'char-cat-girl';
+    document.getElementById('boy').src ='images/char-boy-off.png';
+    document.getElementById('cat-girl').src ='images/char-cat-girl.png';
+    document.getElementById('horn-girl').src ='images/char-horn-girl-off.png';
+    document.getElementById('princess-girl').src ='images/char-princess-girl-off.png';
+    player.change(char);
+}, false);
+
+document.getElementById('horn-girl').addEventListener('click', function(){
+    char = 'char-horn-girl';
+    document.getElementById('boy').src ='images/char-boy-off.png';
+    document.getElementById('cat-girl').src ='images/char-cat-girl-off.png';
+    document.getElementById('horn-girl').src ='images/char-horn-girl.png';
+    document.getElementById('princess-girl').src ='images/char-princess-girl-off.png';
+    player.change(char);
+}, false);
+
+document.getElementById('princess-girl').addEventListener('click', function(){
+    char = 'char-princess-girl';
+    document.getElementById('boy').src ='images/char-boy-off.png';
+    document.getElementById('cat-girl').src ='images/char-cat-girl-off.png';
+    document.getElementById('horn-girl').src ='images/char-horn-girl-off.png';
+    document.getElementById('princess-girl').src ='images/char-princess-girl.png';
+    player.change(char);
+}, false);
