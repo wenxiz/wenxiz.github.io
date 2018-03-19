@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Budget Calculator</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<h1 class="header">Budget Calculator</h1>
+	</header>
+	<section>
+		<div class="container">
+			<form>
+				<h2>Monthly Income</h2>
+				<div class="row">
+					<div class="col-25">
+						<label>Salary</label>
+					</div>
+					<div class="col-75">
+						<input type="number" data-bind="textInput: salary">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label>Other Income</label>
+					</div>
+					<div class="col-75">
+						<input type="number" data-bind="textInput: other_income">				
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="container">
+			<form>
+				<h2>Housing Expenses</h2>
+				<div class="row">
+					<div class="col-25">
+						<label>Rent</label>
+					</div>
+					<div class="col-75">
+						<input type="number" data-bind="textInput: rent">				
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label>Water/Gas/Electricity</label>
+					</div>
+					<div class="col-75">
+						<input type="number" data-bind="textInput: wge">				
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label>TV/Internet</label>
+					</div>
+					<div class="col-75">
+						<input type="number" data-bind="textInput: tv_internet">				
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label>Repairs</label>
+					</div>
+					<div class="col-75">
+						<input type="number" data-bind="textInput: repairs">				
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label>Phone and Cell</label>
+					</div>
+					<div class="col-75">
+						<input type="number" data-bind="textInput: phone">				
+					</div>
+				</div>
+			
+			<!-- <select id="housing-expenses">
+				<option>Rent</option>
+				<option>Water/Gas/Electricity</option>
+				<option>TV/Internet</option>
+				<option>Repairs</option>
+				<option>Phone and Cell</option>
+			</select>
+			<input type="number" id="housing-input" data-bind="textInput: salary"> -->
+			<!-- <button type="button" id="housing-btn">Click me!!!</button> -->
+			</form>
+		</div>
+		<div class="container">
+			<form>
+			<h2>Transportation</h2>
+			<div class="row">
+				<div class="col-25">
+					<label>Public Transportation</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: pbTrans">				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Gas/Fuel</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: gas_fuel">				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Car payment</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: car_payment">				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Car insurance</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: car_insurance">				
+				</div>
+			</div>
+			<!-- <select name="transportation">
+				<option>Public Transportation</option>
+				<option>Gas/Fuel</option>
+				<option>Car payment</option>
+				<option>Car insurance</option>
+			</select>
+			<input type="number" id="" data-bind="textInput: salary">
+			<button>+</button> -->
+			</form>
+		</div>
+		<div class="container">
+			<form>
+			<h2>Education</h2>
+			<div class="row">
+				<div class="col-25">
+					<label>Tuition</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: tuition">				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Books</label>
+				</div>		
+				<div class="col-75">
+					<input type="number" data-bind="textInput: books">				
+				</div>
+			</div>
+			<!-- <select name="education">
+				<option>Tuition</option>
+				<option>Books</option>
+			</select>
+			<input type="number" data-bind="textInput: salary">
+			<button>+</button> -->
+			</form>
+		</div>
+		<div class="container">
+			<form>
+			<h2>Food and Personal</h2>
+			<div class="row">
+				<div class="col-25">
+					<label>Groceries</label>
+				</div>			
+				<div class="col-75">
+					<input type="number" data-bind="textInput: groceries">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Clothing</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: clothing">				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Entertainment</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: entertainment">				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Medical</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: medical">				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Pets</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: pets">				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Others</label>
+				</div>
+				<div class="col-75">
+					<input type="number" data-bind="textInput: others">				
+				</div>
+			</div>
+			
+			<!-- <select name="Food_and_Personal">
+				<option>Groceries</option>
+				<option>Clothing</option>
+				<option>Entertainment</option>
+				<option>Medical</option>
+				<option>Pets</option>
+				<option>Others</option>
+			</select>
+			<input type="number" data-bind="textInput: salary">
+			<button>+</button> -->
+			</form>
+		</div>
+		
+		<!-- <div class="monthly-expenses">
+			<button type="button" id="calculate">Calculate</button>
+		</div> -->
+
+		<div class="result">
+			<table>
+				<tbody>
+					<tr class="underline">
+						<th>Monthly Income</th>
+						<th class="total">
+							<span id="totalSum" data-bind="text: sum_income"></span>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<div class="housing"></div>
+							Housing
+						</td>
+						<td class="total">
+							<span id="totalSum1" data-bind="text: sum_housing"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="transportation"></div>
+							Transportation
+						</td>
+						<td class="total">
+							<span id="totalSum2" data-bind="text: sum_transport"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="education"></div>
+							Education
+						</td>
+						<td class="total">
+							<span id="totalSum3" data-bind="text: sum_education"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="food-and-personal"></div>
+							Food & personal
+						</td>
+						<td class="total">
+							<span id="totalSum4" data-bind="text: sum_food_personal"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="savings"></div>
+							Savings
+						</td>
+						<td class="total">
+							<span id="totalSum5" data-bind="text: total_saving"></span>
+						</td>
+					</tr>
+					<tr class="upperline">
+						<th>Monthly Expenses</th>
+						<th class="total">
+							<span id="totalSum6" data-bind="text: total_expenses"></span>
+						</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- <div class="showDetail">
+			<table>
+				<tbody>
+					<tr>
+						<th id="transaction">Transaction</th>
+						<th id="amount">Amount</th>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+	</section>
+<!-- 
+		<div class="readout">
+    <h3>What's in the model?</h3>
+    <table>
+        <tr>
+            <td class="label">Text value:</td>
+            <td data-bind="text: stringValue"></td>
+        </tr>
+        <tr>
+            <td class="label">Password:</td>
+            <td data-bind="text: passwordValue"></td>
+        </tr>
+        <tr>
+            <td class="label">Bool value:</td>
+            <td data-bind='text: booleanValue() ? "True" : "False"'></td>
+        </tr>
+        <tr>
+            <td class="label">Selected option:</td>
+            <td data-bind="text: selectedOptionValue"></td>
+        </tr>
+        <tr>
+            <td class="label">Multi-selected options:</td>
+            <td data-bind="text: multipleSelectedOptionValues"></td>
+        </tr>
+        <tr>
+            <td class="label">Radio button selection:</td>
+            <td data-bind="text: radioSelectedOptionValue"></td>
+        </tr>
+    </table>
+</div>
+ 
+<h3>HTML controls</h3>
+<table>
+    <tr>
+        <td class="label">Text value (updates on change):</td>
+        <td><input data-bind="textInput: stringValue" /></td>
+    </tr>
+    <tr>
+        <td class="label">Text value (updates on keystroke):</td>
+        <td><input data-bind='value: stringValue, valueUpdate: "afterkeydown"' /></td>
+    </tr>
+    <tr>
+        <td class="label">Text value (multi-line):</td>
+        <td><textarea data-bind="value: stringValue"> </textarea></td>
+    </tr>
+    <tr>
+        <td class="label">Password:</td>
+        <td><input type="password" data-bind="value: passwordValue" /></td>
+    </tr>
+    <tr>
+        <td class="label">Checkbox:</td>
+        <td><input type="checkbox" data-bind="checked: booleanValue" /></td>
+    </tr>
+    <tr>
+        <td class="label">Drop-down list:</td>
+        <td><select data-bind="options: optionValues, value: selectedOptionValue"></select></td>
+    </tr>
+    <tr>
+        <td class="label">Multi-select drop-down list:</td>
+        <td><select multiple="multiple" data-bind="options: optionValues, selectedOptions: multipleSelectedOptionValues"></select></td>
+    </tr>
+    <tr>
+        <td class="label">Radio buttons:</td>
+        <td>
+            <label><input type="radio" value="Alpha" data-bind="checked: radioSelectedOptionValue" />Alpha</label>
+            <label><input type="radio" value="Beta" data-bind="checked: radioSelectedOptionValue" />Beta</label>
+            <label><input type="radio" value="Gamma" data-bind="checked: radioSelectedOptionValue" />Gamma</label>
+        </td>
+    </tr>
+</table>
+
+ -->
+		<script src="bower_components/knockout/dist/knockout.js"></script>
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="js/app.js"></script>
+</body>
+</html>
