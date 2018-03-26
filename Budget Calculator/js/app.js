@@ -25,45 +25,71 @@ var ViewModel = function() {
 	self.pets = ko.observable('');
 	self.others = ko.observable('');
 
+	self.sum_housing_value = 0;
+	self.sum_transport_value = 0;
+	self.sum_education_value = 0;
+	self.sum_food_personal_value = 0;
+	self.total_expenses_value = 0;
+	self.sum_income_value = 0;
+	self.total_saving_value = 0;
+
+	self.update = function() {
+		self.sum_housing();
+		self.sum_food_personal();
+		self.sum_education();
+		self.sum_transport();
+		self.sum_income();
+	}
+
+	// self.sumAll = function(parameter1, ... parameters) {
+	// 	sum = 0;
+	// 	for(let i = 0, len=parameters.length; i<len; i++) {
+	// 		console.log(parameters.length);
+	// 		console.log(parameters[i]);
+	// 		sum += Number(parameters[i]);
+	// 	}
+	// 	console.log(sum);
+	// 	return sum;
+	// }
+
+	self.display = function(currency) {
+		return currency.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+	}
+
 	self.sum_income = ko.computed(function(){
-		var total = 0;
-		total = Number(self.salary()) + Number(self.other_income());
-		return total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+		self.sum_income_value = Number(self.salary()) + Number(self.other_income());
+		return self.display(self.sum_income_value);
+		// return self.display(self.sumAll(self.salary(), self.other_income()));
 	}, self);
 
 	self.sum_housing = ko.computed(function(){
-		var total = 0;
-		total = Number(self.rent()) + Number(self.wge()) + Number(self.tv_internet()) + Number(self.repairs()) 
+		self.sum_housing_value = Number(self.rent()) + Number(self.wge()) + Number(self.tv_internet()) + Number(self.repairs()) 
 		+ Number(self.phone());
-		return total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });;
+		// return self.sum_housing_value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+		return self.display(self.sum_housing_value);
 	}, self);
 
 	self.sum_transport = ko.computed(function(){
-		var total = 0;
-		total = Number(self.pbTrans()) + Number(self.gas_fuel()) + Number(self.car_payment()) 
+		self.sum_transport_value = Number(self.pbTrans()) + Number(self.gas_fuel()) + Number(self.car_payment()) 
 		+ Number(self.car_insurance());
-		return total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });;
+		return self.display(self.sum_transport_value);
 	}, self);
 
 	self.sum_education = ko.computed(function(){
-		var total = 0;
-		total = Number(self.tuition()) + Number(self.books());
-		return total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });;
+		self.sum_education_value = Number(self.tuition()) + Number(self.books());
+		return self.display(self.sum_education_value);
 	}, self);
 
 	self.sum_food_personal = ko.computed(function(){
-		var total = 0;
-		total = Number(self.groceries()) + Number(self.clothing()) + Number(self.entertainment()) 
-		+ Number(self.medical()) +
-		 Number(self.pets()) + Number(self.others());
-		return total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });;
+		self.sum_food_personal_value = Number(self.groceries()) + Number(self.clothing()) + Number(self.entertainment()) 
+		+ Number(self.medical()) + Number(self.pets()) + Number(self.others());
+		return self.display(self.sum_food_personal_value);
 	}, self);
 
 	self.total_expenses = ko.computed(function(){
-		var total = 0;
-		total = Number(self.sum_housing()) + Number(self.sum_transport()) + Number(self.sum_education()) 
-		+ Number(self.sum_food_personal());
-		return total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });;
+		self.update();
+		self.total_expenses_value = self.sum_housing_value + self.sum_education_value + self.sum_transport_value + self.sum_food_personal_value;
+		return self.display(self.total_expenses_value);
 	}, self);
 
 		// self.changeType = function() {
@@ -74,9 +100,10 @@ var ViewModel = function() {
 		// }
 		// console.log(self.changeType);
 	self.total_saving = ko.computed(function(){
-		var total = 0;
-		total = Number(self.sum_income()) - Number(self.total_expenses());
-		return total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });;
+		console.log(self.sum_income());
+		self.update();
+		self.total_saving_value = self.sum_income_value - self.total_expenses_value;
+		return self.display(self.total_saving_value);
 	}, self);
 }
 
